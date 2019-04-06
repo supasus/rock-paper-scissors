@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RockPaperScissors.io</title>
+</head>
+<body>
+	<h1 style="text-align: center;">ROCK PAPER SCISSORS ONLINE FOR FREE WITHOUT ADS</h1>
+
+
+
+
+<!-- 1 = rock, 2 = paper, 3 = scissors -->
+
+
+	<script type="text/javascript">
+
+	   var computerSelection = computerPlay();
+	   var playerSelection 
+	   var playerScore = 0;
+	   var computerScore = 0;
+
+
+       function computerRandom() {
+       	var max = 4;
+       	var min = 1;
+        return Math.floor(Math.random() * (+max - +min)) + +min; 
+       }
+     
+       function score(){
+       	if (playRound(playerSelection, computerSelection).indexOf("won") == -1 && (playRound(playerSelection, computerSelection).indexOf("tie") == -1)) {
+       		return computerScore++;
+       	}
+       	else if (playRound(playerSelection, computerSelection).indexOf("tie") > 0 ){
+       		return null;
+       	}
+       	else {
+       		return playerScore++;
+       	}
+       	}
+       
+
+       function computerPlay(){
+       var choice = computerRandom();
+        if (choice == 1){
+        	return 'rock';
+        }
+        else if (choice == 2){
+        	return 'paper';
+        }
+        else {
+        	return 'scissors';
+        }
+     }
+       function playerPlayRock (){
+         if (computerSelection == 'paper'){
+        	return "Paper beats rock! You've lost!";
+        }
+        else if (computerSelection == 'rock') {
+        	return "It's a tie!";
+        }
+        else {
+             return "Rock beats scissors! You've won!";
+        };
+       }
+
+       function playerPlayScissors() {
+         if (computerSelection == 'rock'){
+        	return "Rock beats scissors! You've lost!";
+        }
+        else if (computerSelection == 'scissors') {
+        	return "It's a tie!";
+        }
+        else {
+             return "scissors beat paper! You've won!";
+        };
+
+       }
+
+       function playerPlayPaper () {
+       	 if (computerSelection == 'scissors'){
+        	return "Scissors beat paper! You've lost!";
+        }
+        else if (computerSelection == 'paper') {
+        	return "It's a tie!";
+        }
+        else {
+             return "Paper beats rock! You've won!";
+        };
+       }
+
+		function playRound(playerSelection, computerSelection) {
+		 if (playerSelection == 'paper'){
+            return  playerPlayPaper();
+		 }
+		 else if (playerSelection == 'rock'){
+		 return	playerPlayRock();
+		 }
+         else {
+         return	playerPlayScissors();
+         }
+              }
+        
+       function announce(){
+       	alert("Let's play this! You have: " + playerSelection + " " + "and he has:" + " " + computerSelection);
+       }
+       
+       function getHands(){
+       	playerSelection = prompt("Tell me your hand!").toLowerCase();
+       	computerSelection = computerPlay();
+       }
+       function scoreCheck(){
+       	if (playerScore == 5){
+       		return 'yourwin'
+       	} else if(computerScore == 5){
+       		return 'robotwin'
+       	}
+       }
+       
+        function game(){
+        	if (playerScore < 5 && computerScore < 5){
+        	getHands();
+        	announce();
+			alert(playRound(playerSelection, computerSelection));
+			score();
+			alert("you have:" + " " + playerScore + " " + "he has:" + " " + computerScore);
+			}
+			else {
+				return alert("game over! your score:" + " " + playerScore + " " + "his score:" + " " + computerScore + " " + "Restart the page to play again!");
+			}
+
+        }
+                  
+while (playerScore || computerScore < 5){
+	game();}
+
+
+
+	</script>
+</body>
+</html>
