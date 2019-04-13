@@ -2,23 +2,56 @@
 <html>
 <head>
 	<title>RockPaperScissors.io</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<h1 style="text-align: center;">ROCK PAPER SCISSORS ONLINE FOR FREE WITHOUT ADS</h1>
+	<header>
+		<h1 style="text-align: center;">ROCK PAPER SCISSORS ONLINE FOR FREE WITHOUT ADS</h1>
+	</header>
+
+     <div class="choice-box">
+     	<div class="playerchoice"></div>
+     	<div class="versus">VS</div>
+     	<div class="computerchoice"></div>
+     </div>
+  
+      <h3>Pick your weapon, fool!</h3>
+     <div class="buttons">
+       	 <button id="rock">Rock</button>
+         <button id="paper">Paper</button>
+         <button id="scissors">Scissors</button>  
+     </div>
 
 
-
-
-<!-- 1 = rock, 2 = paper, 3 = scissors -->
-
+     <div class="announcement">
+     	<p>First round!</p>
+      <span class="playerScore">Your score: 0</span>
+      <span class="computerScore">His score: 0</span>
+     </div>	
 
 	<script type="text/javascript">
 
-	   var computerSelection = computerPlay();
-	   var playerSelection 
-	   var playerScore = 0;
-	   var computerScore = 0;
+var computerSelection
+var playerSelection 
+var playerScore = 0;
+var computerScore = 0;
 
+const playerIcon = document.querySelector('.playerchoice')
+const computerIcon = document.querySelector('.computerchoice')
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');   
+const scissors = document.querySelector('#scissors');
+const info = document.querySelector('p'); 
+const pScore = document.querySelector('.playerScore');
+const cScore = document.querySelector('.computerScore')
+const scoreText = 'Your score is' + " ";
+const scoreTextComputer = 'His score is' + " ";
+
+
+        function addIcons() {
+        	playerIcon.classList.add(playerSelection);
+        	computerIcon.classList.add(computerSelection);
+        }
 
        function computerRandom() {
        	var max = 4;
@@ -99,42 +132,47 @@
          return	playerPlayScissors();
          }
               }
-        
-       function announce(){
-       	alert("Let's play this! You have: " + playerSelection + " " + "and he has:" + " " + computerSelection);
-       }
        
-       function getHands(){
-       	playerSelection = prompt("Tell me your hand!").toLowerCase();
-       	computerSelection = computerPlay();
-       }
-       function scoreCheck(){
-       	if (playerScore == 5){
-       		return 'yourwin'
-       	} else if(computerScore == 5){
-       		return 'robotwin'
-       	}
-       }
-       
+       function clearIcons () {
+       	playerIcon.classList.remove('rock', 'paper', 'scissors');
+        computerIcon.classList.remove('rock', 'paper', 'scissors');
+       }     
+
+      
         function game(){
         	if (playerScore < 5 && computerScore < 5){
-        	getHands();
-        	announce();
-			alert(playRound(playerSelection, computerSelection));
-			score();
-			alert("you have:" + " " + playerScore + " " + "he has:" + " " + computerScore);
+        	computerSelection = computerPlay();
+            clearIcons();
+        	addIcons();
+        	info.textContent = playRound(playerSelection, computerSelection);
+        	score();
+        	pScore.textContent = scoreText + playerScore;
+        	cScore.textContent = scoreTextComputer + computerScore;
+			}else {
+				while (playerScore || computerScore == 5){
+					info.textContent = 'Game over! Thank you for playing!';
+					break;
+				}
 			}
-			else {
-				return alert("game over! your score:" + " " + playerScore + " " + "his score:" + " " + computerScore + " " + "Restart the page to play again!");
-			}
+		}
 
-        }
-                  
-while (playerScore || computerScore < 5){
-	game();}
+  
+        
+        rock.addEventListener('click', () => {
+            playerSelection = 'rock';
+        	game();
+        });
+         
+        paper.addEventListener('click', () => {
+        	 playerSelection = 'paper';
+        	game();
+        });
 
-
-
+        scissors.addEventListener('click', () => {
+         playerSelection = 'scissors';
+        	game();
+        });
+             
 	</script>
 </body>
 </html>

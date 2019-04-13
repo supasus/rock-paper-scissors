@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	}
+
+header {
+	height: 100px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.choice-box {
+	width: 75%;
+	margin: auto;
+	height: 250px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+
+h3 {
+	text-align: center;
+	margin: 20px;
+}
+
+.playerchoice,.computerchoice, .versus {
+	height: 100%;
+	width: 30%;
+}
+
+.versus {
+	font-size: 8em;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.buttons {
+	display: flex;
+    justify-content: center;
+}
+
+button {
+	width: 30%;
+	height: 20px;
+	margin: 10px 5px 0px 5px;
+
+}
+
+
+.announcement {
+	margin: 20px;
+}
+.announcement p {
+	font-size: 3em;
+	text-align: center;
+}
+
+
+.paper {
+	background: url('img/paper.png') center no-repeat;
+	background-size: contain;
+}
+
+.rock {
+	background: url('img/rock.png') center no-repeat;
+	background-size: contain;
+}
+
+.scissors {
+	background: url('img/scissors.png') center no-repeat;
+	background-size: contain;
+}
+
+.announcement {
+	text-align: center;
+}
+
+span {
+	margin: 10px;
+	font-size: 3em;
+}
