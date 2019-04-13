@@ -66,17 +66,17 @@ button {
 
 
 .paper {
-	background: url('img/paper.png') center no-repeat;
+	background: url('paper.png') center no-repeat;
 	background-size: contain;
 }
 
 .rock {
-	background: url('img/rock.png') center no-repeat;
+	background: url('rock.png') center no-repeat;
 	background-size: contain;
 }
 
 .scissors {
-	background: url('img/scissors.png') center no-repeat;
+	background: url('scissors.png') center no-repeat;
 	background-size: contain;
 }
 
